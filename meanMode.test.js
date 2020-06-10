@@ -1,18 +1,23 @@
 const { meanMode } = require('./meanMode');
 
-test('Тест1', () => {
-    expect(meanMode([1])).toBeTruthy();
-});
-test('Тест2', () => {
-    expect(meanMode([4, 4, 4, 6, 2])).toBeTruthy();
-});
-test('Тест3', () => {
-    expect(meanMode([1, 2, 3])).toBeFalsy();
-});
-test('Тест4', () => {
-    expect(meanMode([1, 1, 1, 2, 5])).toBeFalsy();
-});
-test('Тест5', () => {
+test('Граница "Пустой массив"', () => {
     expect(meanMode([])).toBeFalsy();
 });
+
+test('Граница "Массив из одного числа"', () => {
+    expect(meanMode([1])).toBeTruthy();
+});
+
+test('Граница "Cреднее значение равно числу встречающемуся чаще остальных"', () => {
+    expect(meanMode([4, 4, 4, 6, 2])).toBeTruthy();
+});
+
+test('Cреднее значение не равно числу встречающемуся чаще остальных', () => {
+    expect(meanMode([1, 1, 1, 2, 5])).toBeFalsy();
+});
+
+test('Граница "Все числа встречаются один раз"', () => {
+    expect(meanMode([1, 2, 3])).toBeFalsy();
+});
+
 

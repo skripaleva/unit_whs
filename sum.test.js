@@ -1,11 +1,17 @@
 const { sum } = require('./sum');
 
-test('Тест1', () => {
+test('Граница "x = 0", "y = 0"', () => {
     expect(sum()).toBe(0);
 });
-test('Тест2', () => {
-    expect(sum(1)(2)()).toBe(3);
+
+test('Граница "x = 1", "y = 0"', () => {
+    expect(sum(1)()).toBe(1);
 });
-test('Тест3', () => {
-    expect(sum(1)(2)(3)()).toBe(6);
+
+test('Граница "x = 1", "y = 1"', () => {
+    expect(sum(1)(1)()).toBe(2);
+});
+
+test('Граница "x = -1", "y = -1"', () => {
+    expect(sum(-1)(-1)()).toBe(-2);
 });
